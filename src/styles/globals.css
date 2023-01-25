@@ -40,7 +40,7 @@ body {
   font-size: 16px;
   line-height: 100%;
   color: #ffffff;
-  padding: 16px 32px;
+  padding: 16px 62px;
   gap: 8px;
   width: 144px;
   height: 48px;
@@ -128,4 +128,22 @@ body {
   font-size: 16px;
   line-height: 100%;
   color: #ffffff;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 13, 13, 0.4);
+  border: 1px solid #2f3d51;
+  border-radius: 10px;
+}
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+} */
+.create-svg {
+  top: 16px;
+  right: 92px;
 }

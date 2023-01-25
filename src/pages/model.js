@@ -1,5 +1,5 @@
 import React from "react";
-export const Model = ({setshowmodel}) => {
+export const Model = ({ setshowmodel }) => {
   return (
     <>
       <div
