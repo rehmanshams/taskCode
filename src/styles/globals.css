@@ -3,6 +3,11 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --checkbox-bg-color: linear-gradient(180deg, #656bff 0%, #ff8787 100%);
+}
+
 body {
   background-color: #111827;
 }
@@ -93,13 +98,8 @@ body {
   line-height: 100%;
   color: white;
 }
-.model-background {
-  background: rgba(13, 13, 13, 0.4);
-  backdrop-filter: blur(4px);
-}
 .delete-heading {
   font-family: "Manrope", sans-serif;
-  /* font-family: "Poppins", sans-serif; */
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -108,7 +108,6 @@ body {
 }
 .delete-paragrapgh {
   font-family: "Manrope", sans-serif;
-  /* font-family: "Poppins", sans-serif; */
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -122,12 +121,13 @@ body {
 }
 .get-task-data-paragraph {
   font-family: "Manrope", sans-serif;
-  /* font-family: "Poppins", sans-serif; */
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
   color: #ffffff;
+  padding-top: 2px;
+
 }
 ::-webkit-scrollbar {
   width: 15px;
@@ -137,13 +137,52 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(13, 13, 13, 0.4);
-  border: 1px solid #2f3d51;
+  border: 1px solid #3a4a5f;
   border-radius: 10px;
 }
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
-} */
 .create-svg {
   top: 16px;
   right: 92px;
+}
+.todo-cb {
+  position: relative;
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.tick {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background: linear-gradient(180deg, #656bff 0%, #ff8787 100%);
+  border-radius: 50px;
+}
+.todo-cb input:checked ~ .tick {
+  background: linear-gradient(180deg, #656bff 0%, #ff8787 100%);
+}
+.tick:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.todo-cb input:checked ~ .tick:after {
+  display: block;
+}
+.todo-cb .tick:after {
+  left: 6px;
+  bottom: 4px;
+  width: 6px;
+  height: 12px;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.model-background {
+  background: rgba(13, 13, 13, 0.4);
+backdrop-filter: blur(4px);
 }

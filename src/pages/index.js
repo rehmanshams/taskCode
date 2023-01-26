@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import LottieAnimation from "./Lotiecomp";
+// import Image from "../../";
 import Model from "./model";
 export default function Home() {
-  const [togglestate, settogglestate] = useState("");
   const [showmodel, setshowmodel] = useState(false);
   const [getdata, setgetdata] = useState("");
   const [todolist, settodolist] = useState([]);
@@ -14,8 +15,14 @@ export default function Home() {
       settodolist([getdata, ...todolist]);
       setgetdata("");
     }
-   
   };
+  const onDelete = (idx) => {
+    settodolist((list) => {
+      return list.filter((item) => item !== idx);
+    });
+    console.log(todolist, "delete list");
+  };
+
   return (
     <>
       <div className="w-full max-w-[1440px] mx-auto">
@@ -35,7 +42,6 @@ export default function Home() {
               />
               <div className="relative">
                 <input
-                  // className=""
                   type="submit"
                   value={"Create"}
                   className="create-button cursor-pointer flex gap-2"
@@ -80,14 +86,20 @@ export default function Home() {
             <div className="flex justify-between">
               <div className="get-task">
                 <p className="task-heading">Create a new task</p>
-                <button className="done-task">{todolist.length}</button>
+                <button className="cursor-default done-task">
+                  {todolist.length}
+                </button>
               </div>
               <div className="get-task">
                 <p className="task-heading">Done Tasks</p>
-                <button className="completed-task"></button>
+                <button className="cursor-default completed-task">
+                  {" "}
+                  0 of {todolist.length}
+                </button>
               </div>
             </div>
             <div className="pb-4">
+              <LottieAnimation />
               {todolist.length >= 1
                 ? todolist.map((todo, idx) => {
                     return (
@@ -95,88 +107,19 @@ export default function Home() {
                         <div className="flex gap-4">
                           <div
                             onClick={() => {
-                              togglestate !== 0
-                                ? settogglestate(0)
-                                : settogglestate(null);
+                              onDelete();
                             }}
                             className="cursor-pointer"
                           >
-                            {togglestate == 0 ? (
-                              <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <g clip-path="url(#clip0_972_7163)">
-                                  <path
-                                    d="M12 22C10.0222 22 8.08879 21.4135 6.4443 20.3147C4.79981 19.2159 3.51809 17.6541 2.76121 15.8268C2.00433 13.9996 1.8063 11.9889 2.19215 10.0491C2.578 8.10929 3.53041 6.32746 4.92894 4.92894C6.32746 3.53041 8.10929 2.578 10.0491 2.19215C11.9889 1.8063 13.9996 2.00433 15.8268 2.76121C17.6541 3.51809 19.2159 4.79981 20.3147 6.4443C21.4135 8.08879 22 10.0222 22 12C22 14.6522 20.9464 17.1957 19.0711 19.0711C17.1957 20.9464 14.6522 22 12 22V22ZM12 4C10.4178 4 8.87104 4.4692 7.55544 5.34825C6.23985 6.2273 5.21447 7.47673 4.60897 8.93854C4.00347 10.4003 3.84504 12.0089 4.15372 13.5607C4.4624 15.1126 5.22433 16.538 6.34315 17.6569C7.46197 18.7757 8.88743 19.5376 10.4393 19.8463C11.9911 20.155 13.5997 19.9965 15.0615 19.391C16.5233 18.7855 17.7727 17.7602 18.6518 16.4446C19.5308 15.129 20 13.5823 20 12C20 9.87827 19.1572 7.84344 17.6569 6.34315C16.1566 4.84286 14.1217 4 12 4V4Z"
-                                    fill="url(#paint0_linear_972_7163)"
-                                  />
-                                </g>
-                                <defs>
-                                  <linearGradient
-                                    id="paint0_linear_972_7163"
-                                    x1="12"
-                                    y1="2"
-                                    x2="12"
-                                    y2="22"
-                                    gradientUnits="userSpaceOnUse"
-                                  >
-                                    <stop stop-color="#656BFF" />
-                                    <stop offset="1" stop-color="#FF8787" />
-                                  </linearGradient>
-                                  <clipPath id="clip0_972_7163">
-                                    <rect width="24" height="24" fill="white" />
-                                  </clipPath>
-                                </defs>
-                              </svg>
-                            ) : (
-                              <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <g clip-path="url(#clip0_972_7209)">
-                                  <path
-                                    d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                    fill="url(#paint0_linear_972_7209)"
-                                  />
-                                  <path
-                                    d="M9 12L11 14L15 10"
-                                    stroke="white"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  />
-                                </g>
-                                <defs>
-                                  <linearGradient
-                                    id="paint0_linear_972_7209"
-                                    x1="12"
-                                    y1="3"
-                                    x2="12"
-                                    y2="21"
-                                    gradientUnits="userSpaceOnUse"
-                                  >
-                                    <stop stop-color="#656BFF" />
-                                    <stop offset="1" stop-color="#FF8787" />
-                                  </linearGradient>
-                                  <clipPath id="clip0_972_7209">
-                                    <rect width="24" height="24" fill="white" />
-                                  </clipPath>
-                                </defs>
-                              </svg>
-                            )}
+                            <label class="todo-cb">
+                              <input type="checkbox" />
+                              <span class="tick"></span>
+                            </label>
+                            {/* <img className="w-5 h-5" src="../../Images/Frame.png"/> */}
+                            {/* <img className="w-5 h-5" src="../../Images/radio-button-off (1).png"/> */}
                           </div>
-                          <p
-                            className="get-task-data-paragraph  pt-1"
-                            key={idx}
-                          >
+                          <p className="get-task-data-paragraph" key={idx}>
                             {todo}
-                            {/* ajdbvia */}
                           </p>
                         </div>
                         <div>
