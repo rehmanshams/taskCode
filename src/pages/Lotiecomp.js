@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-// import animation from '../../public/images/underConstruction.json'
-
 const LottieAnimation = () => {
-  // const container = useRef<HTMLDivElement>(null);
   const container = useRef(null);
   useEffect(() => {
     if (container.current) {
@@ -12,8 +9,6 @@ const LottieAnimation = () => {
         renderer: "svg",
         loop: true,
         autoplay: true,
-        // animationData: require(${animationData}),
-        // animationData: ${animationData},
         animationData: require("../../public/lotie/fire loader.json"),
       });
     }
@@ -32,7 +27,6 @@ const LottieAnimation = () => {
       <div className="fixed inset-0 model-background bg-opacity-70 transition-opacity"></div>
       <div className="fixed inset-0 overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4 text-center  ">
-          {/* <span id="rewardId" /> */}
           <div className="flex justify-center">
             <div className="w-[320px] h-[220px]" ref={container}></div>
           </div>
