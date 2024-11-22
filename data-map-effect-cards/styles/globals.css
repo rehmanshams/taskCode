@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.swiper {
+  width: 240px;
+  height: 320px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.swiper-slide:nth-child(1n) {
+  background: linear-gradient(
+    90deg,
+    hsla(159, 35%, 45%, 1) 0%,
+    hsla(176, 68%, 12%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(159, 35%, 45%, 1) 0%,
+    hsla(176, 68%, 12%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(159, 35%, 45%, 1) 0%,
+    hsla(176, 68%, 12%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4A9B7F", endColorstr="#0A3431", GradientType=1 );
+}
+.swiper-slide:nth-child(10n) {
+  background-color: rgb(22, 214, 246);
+}
+.ali1 {
+  background-color: rgb(246, 175, 22);
+}
+.ali {
+  background-color: rgb(246, 22, 99);
+  background-color: rgb(10, 184, 111);
+}
